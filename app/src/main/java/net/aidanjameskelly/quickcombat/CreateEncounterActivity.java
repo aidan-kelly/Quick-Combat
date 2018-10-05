@@ -21,16 +21,21 @@ public class CreateEncounterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_encounter);
+
+        //sets up the ListView to show the names of added creatures
+        //may need to change the ArrayList to be of Enemy object in future
         listView = findViewById(R.id.listView);
         listOfEnemies = new ArrayList<String>();
-
         enemyNameEditText = findViewById(R.id.enemyNameEditText);
 
+        //link the ListView with the ArrayList via ourAdapter
         ourAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listOfEnemies);
         listView.setAdapter(ourAdapter);
     }
 
     public void addToList(View view){
+
+        //on click we add the enemy name to the list and update the ListView via the adapter
         listOfEnemies.add(enemyNameEditText.getText().toString());
         ourAdapter.notifyDataSetChanged();
         Toast.makeText(this, "Adding " + enemyNameEditText.getText() + " to the list!", Toast.LENGTH_SHORT).show();
