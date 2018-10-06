@@ -1,5 +1,6 @@
 package net.aidanjameskelly.quickcombat;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 
 public class CreateEncounterActivity extends AppCompatActivity {
 
+    SQLiteDatabase database;
     EditText enemyNameEditText;
     ListView listView;
     ArrayList<String> listOfEnemies;
@@ -21,6 +23,9 @@ public class CreateEncounterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_encounter);
+
+        //database set up
+        database = openOrCreateDatabase("Encounters", MODE_PRIVATE, null);
 
         //sets up the ListView to show the names of added creatures
         //may need to change the ArrayList to be of Enemy object in future
