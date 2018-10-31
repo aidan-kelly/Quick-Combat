@@ -12,5 +12,45 @@ public class Encounter {
     private String name;
     private int numOfPlayers;
 
+    public static final String CREATE_TABLE =
+            "CREATE TABLE " + TABLE_NAME + "("
+                    + COLUMN_ENCID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + COLUMN_NAME + " TEXT,"
+                    + COLUMN_PLAYERS + " INTEGER"
+                    + ")";
+
+    public Encounter(){
+    }
+
+    public Encounter(int encID, String name, int numOfPlayers){
+        this.encID = encID;
+        this.name = name;
+        this.numOfPlayers = numOfPlayers;
+    }
+
+    public int getEncID(){
+        return encID;
+    }
+
+    public void setEncID(int encID){
+        this.encID = encID;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public int getNumOfPlayers(){
+        return numOfPlayers;
+    }
+
+    public void setNumOfPlayers(int numOfPlayers){
+        this.numOfPlayers = numOfPlayers;
+    }
+
 
 }
