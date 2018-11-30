@@ -1,5 +1,6 @@
 package net.aidanjameskelly.quickcombat;
 
+import android.arch.persistence.room.Room;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,17 +14,30 @@ import java.util.ArrayList;
 
 public class CreateEncounterActivity extends AppCompatActivity {
 
-    SQLiteDatabase database;
     EditText enemyNameEditText;
     ListView listView;
     ArrayList<String> listOfEnemies;
     ArrayAdapter<String> ourAdapter;
 
 
+    QuickCombatDatabase database;
+    EncounterDao encounterDao;
+    EnemyDao enemyDao;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_encounter);
+
+        //database set up.
+        database = Room.databaseBuilder(this, QuickCombatDatabase.class, "qcdb")
+                .allowMainThreadQueries()   //Allows room to do operation on main thread
+                .fallbackToDestructiveMigration()
+                .build();
+
+        encounterDao = database.getEncounterDao();
+        enemyDao = database.getEnemyDao();
 
         //sets up the ListView to show the names of added creatures
         listView = findViewById(R.id.listView);
