@@ -1,18 +1,14 @@
 package net.aidanjameskelly.quickcombat;
 
+import android.arch.persistence.room.*;
+
+@Entity(tableName = "enemy_table",primaryKeys = {"encID", "eneID"})
 public class Enemy {
 
-    public static final String TABLE_NAME = "enemies";
+    public int encID;
+    public int eneID;
+    public String eneName;
+    public int eneHP;
+    public int eneDexMod;
 
-    public static final String COLUMN_ENCID = "encID";
-    public static final String COLUMN_ENEID = "eneID";
-    public static final String COLUMN_NAME = "name";
-    public static final String COLUMN_HP = "hp";
-    public static final String COLUMN_DEX = "dex";
-
-    private int encID;
-    private int eneID;
-    private String name;
-    private int hp;
-    private int dex;
 }

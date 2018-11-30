@@ -24,11 +24,7 @@ public class CreateEncounterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_encounter);
 
-        //database set up
-        database = openOrCreateDatabase("Encounters", MODE_PRIVATE, null);
-
         //sets up the ListView to show the names of added creatures
-        //may need to change the ArrayList to be of Enemy object in future
         listView = findViewById(R.id.listView);
         listOfEnemies = new ArrayList<String>();
         enemyNameEditText = findViewById(R.id.enemyNameEditText);
