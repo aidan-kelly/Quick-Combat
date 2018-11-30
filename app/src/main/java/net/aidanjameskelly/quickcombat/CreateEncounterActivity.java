@@ -19,6 +19,7 @@ public class CreateEncounterActivity extends AppCompatActivity {
     ArrayList<String> listOfEnemies;
     ArrayAdapter<String> ourAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +35,9 @@ public class CreateEncounterActivity extends AppCompatActivity {
         listView.setAdapter(ourAdapter);
     }
 
-    public void addToList(View view){
 
+
+    public void addToList(View view){
         //on click we add the enemy name to the list and update the ListView via the adapter
         listOfEnemies.add(enemyNameEditText.getText().toString());
         ourAdapter.notifyDataSetChanged();
